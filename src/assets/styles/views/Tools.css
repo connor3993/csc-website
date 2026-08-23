@@ -32,7 +32,7 @@
     /* 裁剪出梯形：左上、右上(70%)、右下(30%)、左下 */
     clip-path: polygon(0 0, 70% 0, 30% 100%, 0 100%);
     
-    background-image: url('@/assets/imgs/map.png');
+    background-image: url('@/assets/imgs/map.webp');
     background-size: cover;
     background-position: center;
     z-index: 2; /* 在上方 */
@@ -53,7 +53,7 @@
     /* 裁剪出互补梯形：左上(69.8%为了防白边)、右上、右下、左下(29.8%) */
     clip-path: polygon(69.9% 0, 100% 0, 100% 100%, 29.9% 100%);
     
-    background-image: url('@/assets/imgs/talk.jpg');
+    background-image: url('@/assets/imgs/talk.webp');
     background-size: cover;
     background-position: center;
     z-index: 2;
