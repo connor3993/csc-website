@@ -1,0 +1,101 @@
+.scenery-page {
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9; /* 给页面设置背景色，防止出现缝隙 */
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 8rem; /* 在这里加底部间距，而不是父容器 */
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.gallery-group {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* 左大右小比例 */
+  gap: 20px;
+  height: 600px; /* 固定高度确保整齐，或者设为 auto */
+}
+
+/* 偶数行翻转布局：右大左小 */
+.gallery-group.reverse {
+  grid-template-columns: 1fr 1.5fr;
+  direction: rtl; /* 简单实现左右互换 */
+}
+.gallery-group.reverse > * {
+  direction: ltr; /* 恢复内部内容方向 */
+}
+
+/* 主图区域 */
+.main-card {
+  height: 100%;
+  width: 100%;
+}
+
+/* 副图网格区域 (2x2) */
+.sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+}
+
+/* 卡片通用样式 */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #222;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 悬停放大效果 */
+.photo-card {
+  cursor: zoom-in; /* Change cursor to indicate clickability */
+}
+
+.photo-card:hover .img-wrapper img {
+  transform: scale(1.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .gallery-group {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 15px;
+  }
+  
+  .gallery-group.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr; /* 取消手机端翻转 */
+  }
+
+  .main-card {
+    height: 300px; /* 手机端高度限制 */
+  }
+
+  .sub-grid {
+    height: 400px;
+    gap: 15px;
+  }
+}

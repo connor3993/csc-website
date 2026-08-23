@@ -1,0 +1,17 @@
+.server-status {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #eee; /* Hero区域背景比较深，这里文字还要保持浅色 */
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00e676;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00e676;
+}

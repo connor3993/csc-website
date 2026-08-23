@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'mojangles';
+  src: url('@/assets/fonts/mojangles.otf.woff2') format('woff2');
+}
+
+
+.ip-card {
+  display: inline-flex;
+  flex-direction: column;
+  background: rgba(20, 20, 20, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  min-width: 340px;
+  max-width: 420px;
+  user-select: none;
+  position: relative;
+  text-align: left;
+}
+
+.ip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ip-row, .port-row {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.ip-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ip-row:hover, .port-row:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.ip-row:active, .port-row:active {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(0.99);
+}
+
+.info-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label {
+  font-family: 'mojangles', 'Segoe UI', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  min-width: 45px;
+}
+
+.value {
+  font-family: 'mojangles', monospace;
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+
+.ip-row:hover .icon-img, .port-row:hover .icon-img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.icon-wrapper.success .icon-img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.icon-copy {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-check {
+  width: 24px;
+  height: 24px;
+}
+
+.divider {
+  display: none;
+}
+
