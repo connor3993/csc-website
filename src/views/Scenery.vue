@@ -83,7 +83,14 @@ const handleImageError = (event) => {
         <!-- 主图 (大图) -->
         <div class="photo-card main-card" v-if="group[0]" @click="openPreview(group[0].full)">
           <div class="img-wrapper">
-            <img :src="group[0].thumb" loading="lazy" alt="Building showcase main" @error="handleImageError" />
+            <img
+              :src="group[0].full"
+              :srcset="`${group[0].thumb} 800w, ${group[0].full} 1920w`"
+              sizes="(max-width: 768px) 90vw, 55vw"
+              loading="lazy"
+              alt="Building showcase main"
+              @error="handleImageError"
+            />
           </div>
         </div>
 

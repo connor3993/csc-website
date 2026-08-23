@@ -226,19 +226,13 @@ body {
 
 @media (min-width: 700px) {
   .feature-grid {
-    grid-template-columns: 1fr 1fr; /* 中屏 2x2 */
-  }
-}
-
-@media (min-width: 1100px) {
-  .feature-grid {
-    grid-template-columns: repeat(4, 1fr); /* 宽屏一行 4 张，提高密度 */
+    grid-template-columns: 1fr 1fr; /* 2x2 田字布局 */
   }
 }
 
 .feature-card {
   position: relative;
-  height: 200px;
+  height: 240px;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -334,11 +328,12 @@ body {
 .join-container {
   max-width: 800px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.5); /* 玻璃拟态 */
+  background: rgba(255, 255, 255, 0.12); /* 降低不透明度，避免白墙 */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  backdrop-filter: blur(14px);
 }
 
 .join-container h2 {

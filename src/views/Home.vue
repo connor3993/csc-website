@@ -4,15 +4,19 @@ import OnlinePlayer from '@/components/OnlinePlayer.vue'
 import IpBox from '@/components/IpBox.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
-// 动态导入建筑图片 (修改为从 public 读取)
+// 动态导入建筑图片 (从 public 读取，组合 srcset 所需多尺寸)
 const buildingImages = ref([])
 
 onMounted(() => {
   fetch('/imgs/data.json')
     .then(res => res.json())
     .then(data => {
-      if (data && data.building_thumb) {
-        buildingImages.value = data.building_thumb.slice(0, 10)
+      if (data && data.building && data.building_tiny) {
+        buildingImages.value = data.building.slice(0, 10).map((full, i) => ({
+          full,
+          thumb: data.building_thumb?.[i] || full,
+          tiny: data.building_tiny?.[i] || full
+        }))
       }
     })
 })
@@ -143,10 +147,22 @@ onUnmounted(() => {
         <div class="marquee-track">
           <!-- 复制一份实现无缝滚动 -->
           <div class="marquee-item" v-for="(img, index) in buildingImages" :key="`a-${index}`">
-            <img :src="img" loading="lazy" alt="Building showcase" />
+            <img
+              :src="img.tiny"
+              :srcset="`${img.tiny} 400w, ${img.thumb} 800w`"
+              sizes="200px"
+              loading="lazy"
+              alt="Building showcase"
+            />
           </div>
           <div class="marquee-item" v-for="(img, index) in buildingImages" :key="`b-${index}`">
-            <img :src="img" loading="lazy" alt="Building showcase" />
+            <img
+              :src="img.tiny"
+              :srcset="`${img.tiny} 400w, ${img.thumb} 800w`"
+              sizes="200px"
+              loading="lazy"
+              alt="Building showcase"
+            />
           </div>
         </div>
       </div>
