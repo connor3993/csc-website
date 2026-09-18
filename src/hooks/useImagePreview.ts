@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
  * 修复原版「预览开着切走页面导致 body 永久锁死」的问题。
  */
 export function useImagePreview() {
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   useEffect(() => {
     document.body.style.overflow = selectedImage ? 'hidden' : ''
@@ -15,7 +15,7 @@ export function useImagePreview() {
 
   return {
     selectedImage,
-    openPreview: img => img && setSelectedImage(img),
+    openPreview: (img: string) => setSelectedImage(img),
     closePreview: () => setSelectedImage(null),
   }
 }

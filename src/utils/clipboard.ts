@@ -3,7 +3,7 @@
  * 优先使用标准 Clipboard API（需要 HTTPS 或 localhost）；
  * HTTP 局域网环境降级为隐藏 textarea + execCommand。
  */
-export async function copyText(text) {
+export async function copyText(text: string) {
   if (navigator.clipboard?.writeText) {
     await navigator.clipboard.writeText(text)
     return

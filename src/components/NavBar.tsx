@@ -3,10 +3,18 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavLight } from '@/context/NavLight'
 import './NavBar.css'
 
-// NavLink 激活态映射为 .active（与 NavBar.css 中的样式对应）
-const navClass = ({ isActive }) => (isActive ? 'active' : undefined)
+type NavBarProps = {
+  serverName: string
+}
 
-export default function NavBar({ serverName }) {
+type NavClassArgs = {
+  isActive: boolean
+}
+
+// NavLink 激活态映射为 .active（与 NavBar.css 中的样式对应）
+const navClass = ({ isActive }: NavClassArgs) => (isActive ? 'active' : undefined)
+
+export default function NavBar({ serverName }: NavBarProps) {
   const { light } = useNavLight()
   const location = useLocation()
 

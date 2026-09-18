@@ -1,6 +1,11 @@
 import './OnlinePlayer.css'
 
-export default function OnlinePlayer({ online, max = 20 }) {
+type OnlinePlayerProps = {
+  online: number
+  max?: number
+}
+
+export default function OnlinePlayer({ online, max = 20 }: OnlinePlayerProps) {
   return (
     <div className="server-status">
       <span className="status-dot"></span>

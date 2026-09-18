@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
 import Footer from '@/components/Footer'
-import { useJson } from '@/hooks/useJson'
+import { CommandCategory, useJson } from '@/hooks/useJson'
 import './Commands.css'
 
 export default function Commands() {
-  const categories = useJson('/commandPage/commands.json')
+  const categories = useJson<CommandCategory[]>('/commandPage/commands.json')
 
   return (
     <div className="commands-page">

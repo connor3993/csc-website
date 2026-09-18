@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { SITE } from '@/config/site'
 
+export type ServerStatus = {
+  online: number
+  max: number
+  version: string
+}
+
 /**
  * 轮询 mcstatus.io 获取服务器在线状态。
  * - 查询成功：60s 后刷新
@@ -9,7 +15,7 @@ import { SITE } from '@/config/site'
  * - 组件卸载时中止请求、清理定时器
  */
 export function useServerStatus() {
-  const [status, setStatus] = useState({
+  const [status, setStatus] = useState<ServerStatus>({
     online: 0,
     max: 20,
     version: SITE.fallbackVersion,
@@ -17,7 +23,7 @@ export function useServerStatus() {
 
   useEffect(() => {
     const controller = new AbortController()
-    let timer
+    let timer: ReturnType<typeof setTimeout> | undefined
     let failures = 0
 
     const poll = async () => {

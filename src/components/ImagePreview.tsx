@@ -1,10 +1,15 @@
 import './ImagePreview.css'
 
+type ImagePreviewProps = {
+  src: string | null
+  onClose: () => void
+}
+
 /**
  * 大图预览遮罩。组件常驻、靠 .open 切换样式，
  * 进出场动画完全由 CSS transition 完成，无需任何 JS 动画逻辑。
  */
-export default function ImagePreview({ src, onClose }) {
+export default function ImagePreview({ src, onClose }: ImagePreviewProps) {
   const open = Boolean(src)
 
   return (

@@ -4,7 +4,7 @@ import OnlinePlayer from '@/components/OnlinePlayer'
 import IpBox from '@/components/IpBox'
 import Footer from '@/components/Footer'
 import SmartImage from '@/components/SmartImage'
-import { useJson, zipImages } from '@/hooks/useJson'
+import { ImageData, SiteData, useJson } from '@/hooks/useJson'
 import { useServerStatus } from '@/hooks/useServerStatus'
 import { useNavLight } from '@/context/NavLight'
 import { SITE } from '@/config/site'
@@ -25,7 +25,7 @@ const FEATURES = [
 
 export default function Home() {
   // 跑马灯图片（取前 10 张，tiny/thumb/full 三档）
-  const data = useJson('/imgs/data.json')
+  const data = useJson<SiteData>('/imgs/data.json')
   const marqueeImages = data?.building?.slice(0, 10).map((full, i) => ({
     full,
     thumb: data.building_thumb?.[i] || full,
@@ -35,8 +35,8 @@ export default function Home() {
   const { online, max, version } = useServerStatus()
   const { setLight } = useNavLight()
 
-  const heroRef = useRef(null)
-  const introRef = useRef(null)
+  const heroRef = useRef<HTMLElement | null>(null)
+  const introRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     let raf = 0

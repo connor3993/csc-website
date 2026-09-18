@@ -2,14 +2,14 @@ import Footer from '@/components/Footer'
 import ImagePreview from '@/components/ImagePreview'
 import SmartImage from '@/components/SmartImage'
 import { useImagePreview } from '@/hooks/useImagePreview'
-import { useJson, zipImages } from '@/hooks/useJson'
+import { SiteData, useJson, zipImages } from '@/hooks/useJson'
 import './Scenery.css'
 
 // 每组 5 张：1 大 + 4 小
 const GROUP_SIZE = 5
 
 export default function Scenery() {
-  const data = useJson('/imgs/data.json')
+  const data = useJson<SiteData>('/imgs/data.json')
   const allImages = data?.building ? zipImages(data.building, data.building_thumb) : []
   const { selectedImage, openPreview, closePreview } = useImagePreview()
 

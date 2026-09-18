@@ -4,18 +4,25 @@ import copyIcon from '@/assets/icons/copy.png'
 import checkIcon from '@/assets/icons/check.png'
 import './IpBox.css'
 
+type IpBoxProps = {
+  ip: string
+  port: string
+}
+
+type FieldKey = 'ip' | 'port'
+
 // 两行结构完全一致，抽成数据驱动渲染
-const FIELDS = [
+const FIELDS: { key: FieldKey; label: string; title: string }[] = [
   { key: 'ip', label: 'IP', title: '点击复制 IP' },
   { key: 'port', label: 'PORT', title: '点击复制端口' },
 ]
 
-export default function IpBox({ ip, port }) {
+export default function IpBox({ ip, port }: IpBoxProps) {
   const values = { ip, port }
   // 当前显示「已复制」状态的字段（null = 无）
-  const [copied, setCopied] = useState(null)
+  const [copied, setCopied] = useState<FieldKey | null>(null)
 
-  const handleCopy = async field => {
+  const handleCopy = async (field: FieldKey) => {
     try {
       await copyText(values[field])
       setCopied(field)
