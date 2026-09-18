@@ -1,0 +1,403 @@
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('@/assets/imgs/12.webp'); 
+  background-size: cover;
+  background-position: center top; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 20px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.version-tag {
+  font-size: 0.8rem;
+  color: #5a5a5a;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+/* Brand & Typography */
+.brand-text {
+  
+  color: #00e676;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+
+
+.main-title {
+  font-size: 5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.outline-text {
+  /* Creating an outlined text effect for "high-end" feel */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  color: transparent;
+  display: block;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #888;
+  letter-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* --- Intro Section --- */
+.intro-section {
+  padding: 5rem 2rem;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-container h2 {
+  font-size: 2.5rem;
+  line-height: 1.6;
+  max-width: 800px;
+  font-weight: 400;
+  color: #eee;
+}
+
+.intro-container .highlight {
+  color: #00e676;
+  font-weight: 600;
+}
+
+.intro-container .fade-text {
+  color: #666;
+  font-size: 1.8rem;
+  display: block;
+  margin-top: 1rem;
+}
+
+.more-icon{
+  height: 20px;
+  width: 20px;
+}
+
+/* --- Scrolling Gallery (Marquee) --- */
+.gallery-wrapper {
+  padding: 4rem 0 3rem;
+  background: #f9f9f9;
+  position: relative;
+  color: #111;
+}
+
+/* Gradient Fade Transition from Intro (#111) */
+.gallery-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  pointer-events: none;
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-title h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: #222;
+}
+
+.gallery-title p {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: scroll 120s linear infinite; 
+}
+
+.marquee-item {
+  width: 280px;
+  height: 175px;
+  margin-right: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);
+}
+
+.marquee-item:hover {
+  transform: scale(1.02);
+  filter: brightness(1);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+  /* Assuming the track contains 2 sets of images, loop halfway */
+}
+
+/* --- Feature Grid (Clean Grid Layout) --- */
+.feature-grid {
+  padding: 3rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 700px) {
+  .feature-grid {
+    grid-template-columns: 1fr 1fr; /* 2x2 田字布局 */
+  }
+}
+
+.feature-card {
+  position: relative;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+/* 卡片背景图由数据驱动（FEATURES 数组内联 style 提供） */
+
+.feature-card:hover .card-bg {
+  transform: scale(1.1);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9); /* 改为亮色玻璃，配合整体浅色调 */
+  backdrop-filter: blur(8px);
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.card-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #e2e8f0; /* 浅灰色号码，不抢眼 */
+  position: absolute;
+  top: -14px;
+  right: 1rem;
+  z-index: -1;
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.3rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #475569;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* --- Join Us Section --- */
+.join-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(to top, #e2f1ff, #f5f5f5);
+  text-align: center;
+}
+
+.join-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.12); /* 降低不透明度，避免白墙 */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  backdrop-filter: blur(14px);
+}
+
+.join-container h2 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.join-container p {
+  color: #64748b;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.join-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+.qq-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qq-info .label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #94a3b8;
+}
+
+.qq-info .number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0ea5e9; /* Sky blue */
+  font-family: monospace;
+  letter-spacing: -2px;
+}
+
+.join-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #0f172a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+}
+
+.join-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.3);
+  background: #1e293b;
+}
+
+@media (min-width: 768px) {
+  .join-card {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+  
+  .qq-info {
+    align-items: flex-start;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .main-title { font-size: 3rem; }
+  .feature-grid { gap: 2rem; }
+  .feature-card.right { margin-top: 0; }
+  .marquee-item { width: 240px; height: 150px; }
+}

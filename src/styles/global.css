@@ -1,0 +1,20 @@
+/* 全局 reset + body 基础样式 + 共享字体，所有页面级 CSS 不再各自声明 */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  /* 浅色渐变背景，替代纯白或纯黑，保持高级感 */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333; /* 主文字颜色改为深色以适应浅背景 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Minecraft 风格像素字体（导航 Logo / IP 卡片共用） */
+@font-face {
+  font-family: 'mojangles';
+  src: url('@/assets/fonts/mojangles.otf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

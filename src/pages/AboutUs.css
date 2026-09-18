@@ -1,0 +1,296 @@
+.about-us-container {
+    min-height: 100vh;
+    /* 背景随页面滚动，适合长图 */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("@/assets/imgs/aboutusbackground_thumb.webp");
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    padding: 60px 0 0;
+    /* Remove side and bottom padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add a wrapper for children that need padding */
+.about-us-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 60px;
+}
+
+
+
+.cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* 
+      Gap: 卡片之间的垂直间距。
+     如果你觉得卡片之间隔得太远，可以减小这个值 (例如 5vh)。
+     如果要让它们重叠更多，可以使用负值 (例如 -5vh)。
+  */
+    gap: 10vh;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 60px;
+}
+
+.team-card {
+    width: min(50vw, 760px);
+    aspect-ratio: 4 / 3;
+
+    background: #fff;
+    border-radius: 12px;
+    padding: 0;
+    /* 卡片内边距 */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    /* 动画过渡效果配置 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* 
+   【奇数卡片倾斜效果】
+   rotate(-3deg): 逆时针旋转 3 度。想更斜就改成 -5deg 或 -10deg。
+   translateX(-20px): 向左平移 20px。想错开更多就改成 -50px。
+*/
+.team-card:nth-child(odd) {
+    transform: rotate(-3deg) translateX(-20px);
+}
+
+/* 
+   【偶数卡片倾斜效果】
+   rotate(3deg): 顺时针旋转 3 度。
+   translateX(20px): 向右平移 20px。
+*/
+.team-card:nth-child(even) {
+    transform: rotate(3deg) translateX(20px);
+}
+
+
+.team-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    background: #dbdbdb;
+}
+
+.card-content h2 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 3rem;
+    /* 名字字体大小，可根据卡片大小调整 */
+}
+
+.team-card .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: transparent;
+    backdrop-filter: none;
+    border: 0;
+    border-radius: 0;
+}
+
+.role-badge {
+    display: inline-block;
+    background: #4caf50;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    /* 职位字体大小 */
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    /* 简介字体大小 */
+    margin: 0;
+    max-width: 80%;
+    /* 限制文字宽度，防止太宽难以阅读 */
+}
+
+/* 
+   【移动端适配】
+   当屏幕宽度小于 768px (手机/平板竖屏) 时应用的样式
+*/
+@media (max-width: 768px) {
+    .team-card {
+        /* 手机上宽度自适应，保持与下方图片板块一致的缩放方式 */
+        width: 90vw;
+        aspect-ratio: 1 / 1;
+    }
+
+    .team-card .card-content {
+        padding: 24px;
+    }
+
+    .card-content h2 {
+        font-size: 2rem;
+    }
+
+    .role-badge {
+        font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+
+    /* 手机上屏幕窄，稍微减小倾斜角度 */
+    .team-card:nth-child(odd) {
+        transform: rotate(-2deg) translateX(0);
+    }
+
+    .team-card:nth-child(even) {
+        transform: rotate(2deg) translateX(0);
+    }
+}
+
+/* =========================================
+   新增：玩家风采 & 集体合影板块样式
+   ========================================= */
+
+.photo-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* 照片容器 - 模拟拍立得/相框效果 */
+.photo-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* 默认给点随机感 */
+    transform: rotate(-1deg);
+}
+
+.photo-frame {
+    background: #fff;
+    padding: 10px 10px 30px 10px;
+    /* 底部留白多一点像拍立得 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.photo-frame img {
+    display: block;
+    width: 280px;
+    /* 固定宽度 */
+    height: 280px;
+    /* 固定高度 (正方形) */
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform 0.5s ease;
+}
+
+/* 宽版照片 (用于合影) */
+.photo-item.wide .photo-frame img {
+    width: 400px;
+    height: 260px;
+}
+
+/* 鼠标悬停效果 */
+.photo-item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    /* 悬停时摆正并放大 */
+    z-index: 10;
+}
+
+.photo-item:hover .photo-frame {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+   让照片看起来更自然随意
+   使用 nth-child 制造交错的旋转角度
+*/
+.photo-item:nth-child(3n+1) {
+    transform: rotate(-2deg);
+}
+
+.photo-item:nth-child(3n+2) {
+    transform: rotate(1.5deg) translateY(10px);
+}
+
+.photo-item:nth-child(3n+3) {
+    transform: rotate(3deg);
+}
+
+.photo-item:nth-child(4n) {
+    transform: rotate(-1.5deg) translateY(-5px);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .photo-frame img,
+    .photo-item.wide .photo-frame img {
+        width: 100%;
+        /* 手机上宽度自适应 */
+        max-width: 300px;
+        /* 设置最大宽度 */
+        height: auto;
+        aspect-ratio: 1/1;
+        /* 保持正方形 */
+    }
+
+    .photo-item.wide .photo-frame img {
+        aspect-ratio: 4/3;
+    }
+
+    .photo-grid {
+        gap: 20px;
+    }
+}

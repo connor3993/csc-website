@@ -1,0 +1,46 @@
+﻿.developing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f7fa; /* 白灰色背景 */
+  padding-top: 60px; /* Offset for navbar */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.developing-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.developing-text {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.developing-subtext {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(46, 125, 50, 0.2);
+}
+
+.back-btn:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
+}

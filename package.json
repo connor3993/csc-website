@@ -1,0 +1,26 @@
+{
+  "name": "csc-website-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "dev-slow": "node tools/dev-slow.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "gen:tiny": "node tools/generate_building_tiny.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "sharp": "^0.35.3",
+    "vite": "^7.3.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

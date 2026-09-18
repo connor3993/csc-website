@@ -1,0 +1,129 @@
+/* 容器样式：占满一屏，隐藏溢出 */
+.split-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+}
+
+/* 基础板块样式 */
+.split-section-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.split-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* 去掉链接下划线 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 保证伪元素遮罩不溢出 */
+}
+
+/* --- 左侧板块 (卫星云图) --- */
+.s1 {
+    /* 裁剪出梯形：左上、右上(70%)、右下(30%)、左下 */
+    clip-path: polygon(0 0, 70% 0, 30% 100%, 0 100%);
+    
+    background-image: url('@/assets/imgs/map.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 2; /* 在上方 */
+}
+
+/* s1 的内容区域，需要往左偏移视觉中心 */
+.s1 .content {
+    padding-right: 30vw; /* 向左挤压 */
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    position: relative;
+}
+
+
+/* --- 右侧板块 (语音聊天) --- */
+.s2 {
+    /* 裁剪出互补梯形：左上(69.8%为了防白边)、右上、右下、左下(29.8%) */
+    clip-path: polygon(69.9% 0, 100% 0, 100% 100%, 29.9% 100%);
+    
+    background-image: url('@/assets/imgs/talk.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+}
+
+/* s2 的内容区域，需要往右偏移视觉中心 */
+.s2 .content {
+    padding-left: 30vw; /* 向右挤压 */
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    position: relative;
+}
+
+/* --- 遮罩效果 (利用伪元素) --- */
+.s1::before, .s2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+    z-index: 1; /* 在背景图之上，内容之下 */
+}
+
+
+.s1::before {
+    background-color: rgba(0, 227, 231, 0.5); 
+}
+
+
+.s2::before {
+    background-color: rgba(156, 156, 156, 0.7);
+}
+
+/* 悬停去遮罩 */
+.s1:hover::before, .s2:hover::before {
+    opacity: 0;
+}
+
+/* --- 字体效果 --- */
+.content h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.split-section:hover h2 {
+    transform: scale(1.1);
+}
+
+/* 响应式：手机端改为上下两半 */
+@media (max-width: 768px) {
+    .s1 {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+    .s1 .content { padding-right: 0; padding-bottom: 25vh; }
+    
+    .s2 {
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    }
+    .s2 .content { padding-left: 0; padding-top: 25vh; }
+}

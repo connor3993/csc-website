@@ -1,0 +1,38 @@
+[
+  {
+    "title": "基础工具",
+    "commands": [
+      { "main": "/bdslm", "sub": "无", "desc": "卫星图网页密码设置" },
+      { "main": "/cd", "sub": "无", "desc": "服务器菜单" },
+      { "main": "/clean", "sub": "无", "desc": "清理游戏内实体" },
+      { "main": "/cleantps", "sub": "无", "desc": "查看服务器tps" },
+      { "main": "/help", "sub": "<page>", "desc": "查看帮助文档" },
+      { "main": "/xyz", "sub": "无", "desc": "显示当前角色坐标" }
+    ]
+  },
+  {
+    "title": "经济系统",
+    "commands": [
+      { "main": "/sm", "sub": "无", "desc": "商店菜单" },
+      { "main": "/money", "sub": "top <number>", "desc": "查看货币排行榜" }
+    ]
+  },
+  {
+    "title": "聊天交互",
+    "commands": [
+      { "main": "/msg", "sub": "<target> <msg>", "desc": "发送私信" },
+      { "main": "/tell", "sub": "<target> <msg>", "desc": "发送私信" }
+    ]
+  },
+  {
+    "title": "领地系统",
+    "commands": [
+      { "main": "/pland", "sub": "无", "desc": "打开领地主界面" },
+      { "main": "/pland", "sub": "buy", "desc": "购买当前领地" },
+      { "main": "/pland", "sub": "cancel", "desc": "取消当前操作" },
+      { "main": "/pland", "sub": "new [type]", "desc": "创建新领地" },
+      { "main": "/pland", "sub": "set <a|b>", "desc": "设置对角点" },
+      { "main": "/pland", "sub": "this", "desc": "查看领地信息" }
+    ]
+  }
+]
