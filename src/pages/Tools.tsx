@@ -5,7 +5,7 @@ export default function Tools() {
   return (
     <div className="split-container">
       <div className="split-section-wrapper">
-        <a href="https://frp-shy.com:49886/" target="_blank" rel="noopener noreferrer" className="split-section s1">
+        <a href="http://mc9.yunmaoc.com:49887/" target="_blank" rel="noopener noreferrer" className="split-section s1">
           <div className="content">
             <h2>卫星云图</h2>
             <p>Satellite Map</p>

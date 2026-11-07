@@ -2,12 +2,16 @@
 .hero-section {
   position: relative;
   height: 100vh;
+  /* 顶部让出固定导航栏（约 70px）的高度：
+     box-sizing 是 border-box，padding 算在 100vh 里，
+     这样垂直居中的可用区域从导航栏下沿开始，内容永远不会被导航栏盖住 */
+  padding-top: 84px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('@/assets/imgs/12.webp'); 
+  background-image: url('@/assets/imgs/12.webp');
   background-size: cover;
-  background-position: center top; 
+  background-position: center top;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -85,6 +89,16 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+}
+
+/* 视口偏矮（小窗口 / 低分屏）时整体收紧 hero：
+   100% 缩放下内容总高度会超出视口，IP 框贴底甚至被裁掉（overflow:hidden）。
+   这组规则只看"高度"触发，效果 ≈ 浏览器缩到 90% 的观感；大屏（高视口）完全不受影响 */
+@media (max-height: 760px) {
+  .brand-text  { font-size: 1.2rem;  margin-bottom: 1.25rem; }
+  .main-title  { font-size: 3.5rem;  margin-bottom: 1rem; }
+  .subtitle    { font-size: 1.15rem; margin-bottom: 1.75rem; }
+  .status-bar  { gap: 1rem; }
 }
 
 /* --- Intro Section --- */

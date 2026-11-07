@@ -87,7 +87,7 @@ export default function NavBar({ serverName }: NavBarProps) {
             </div>
 
             <div className="dropdown-menu">
-              <a href="https://frp-shy.com:49886/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>卫星地图</a>
+              <a href="http://mc9.yunmaoc.com:49887/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>卫星地图</a>
               <NavLink to="/developing" className={navClass} onClick={closeMenu}>语音聊天</NavLink>
             </div>
           </div>

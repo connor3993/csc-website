@@ -6,12 +6,14 @@ import Footer from '@/components/Footer'
 import SmartImage from '@/components/SmartImage'
 import { ImageData, SiteData, useJson } from '@/hooks/useJson'
 import { useServerStatus } from '@/hooks/useServerStatus'
+import { usePreloadImage } from '@/hooks/usePreloadImage'
 import { useNavLight } from '@/context/NavLight'
 import { SITE } from '@/config/site'
 import imgSurvival from '@/assets/imgs/3.webp'
 import imgCommunity from '@/assets/imgs/talk.webp'
 import imgBuilding from '@/assets/imgs/building.webp'
 import imgTech from '@/assets/imgs/survival_thumb.webp'
+import imgMap from '@/assets/imgs/map.webp'
 import moreIcon from '@/assets/icons/more.png'
 import './Home.css'
 
@@ -34,6 +36,10 @@ export default function Home() {
 
   const { online, max, version } = useServerStatus()
   const { setLight } = useNavLight()
+
+  // 提前加载「便捷功能」页的卫星云图背景（Tools.css 里的 map.webp），
+  // 否则要等进入该页、懒加载的 JS/CSS 都到位后才开始下这张 337 KB 的图。
+  usePreloadImage(imgMap)
 
   const heroRef = useRef<HTMLElement | null>(null)
   const introRef = useRef<HTMLElement | null>(null)

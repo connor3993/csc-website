@@ -5,7 +5,7 @@
  */
 export const SITE = {
   name: 'CSC Museum',
-  ip: 'csc2022.top',
+  ip: 'play.csc2022.top',
   port: '进群查看->674166080',
   // mcstatus.io 查询用的 Bedrock 端口
   statusPort: 49886,
